@@ -1,0 +1,69 @@
+﻿@model IEnumerable<CredoGarantApp.Models.Request>
+
+@{
+    ViewBag.Title = "Requests";
+}
+
+<h2>Requests</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RequestingFirmName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoadingAddress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LoadingDateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnloadingAdress)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnloadingDateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailOfContact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneOfContact)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.RequestingFirmName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoadingAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoadingDateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnloadingAdress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UnloadingDateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailOfContact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneOfContact)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RequestID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RequestID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RequestID })
+        </td>
+    </tr>
+}
+
+</table>

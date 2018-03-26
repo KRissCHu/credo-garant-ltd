@@ -1,0 +1,80 @@
+﻿@model CredoGarantApp.Models.Request
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Request</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RequestingFirmName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequestingFirmName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoadingAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoadingAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoadingDateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoadingDateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnloadingAdress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnloadingAdress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UnloadingDateTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UnloadingDateTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailOfContact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailOfContact)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneOfContact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneOfContact)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
