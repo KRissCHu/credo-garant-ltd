@@ -2,6 +2,20 @@
 
 @{
     ViewBag.Title = "Requests";
+    Layout = "~/Views/Shared/LoggedInLayout.cshtml";
+}
+
+@section Scripts
+    {
+
+    <script src="~/Scripts/jquery-1.12.4.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#LoadingDateTime").datepicker();
+            $("#UnloadingDateTime").datepicker();
+        });
+    </script>
 }
 
 <h2>Requests</h2>
@@ -35,35 +49,36 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.RequestingFirmName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LoadingAddress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LoadingDateTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UnloadingAdress)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UnloadingDateTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmailOfContact)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PhoneOfContact)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RequestID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RequestID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RequestID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RequestingFirmName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoadingAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LoadingDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnloadingAdress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnloadingDateTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailOfContact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneOfContact)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.RequestID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.RequestID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.RequestID })
+            </td>
+        </tr>
+    }
 
 </table>

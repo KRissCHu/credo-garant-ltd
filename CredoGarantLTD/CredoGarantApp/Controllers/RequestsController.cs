@@ -13,11 +13,43 @@ namespace CredoGarantApp.Controllers
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult About()
+        {
+            return View();
+        }
+
+        public ActionResult Contacts()
+        {
+            return View();
+        }
+
         // Requests - List all the records
         public ActionResult Requests()
         {
             return View(db.Requests.ToList());
         }
+        // Details - View the details of a specific record
+        public ActionResult Details(int? id)
+        {
+            if(id ==null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Request request = db.Requests.Find(id);
+
+            if(request == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(request);
+        }
+
         // Create - Create a new record
         public ActionResult Create()
         {
